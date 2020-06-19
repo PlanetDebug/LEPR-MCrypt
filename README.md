@@ -1,11 +1,25 @@
-# docker-compose-laravel
-Simplified LEPP stack for local development.
+# Microservices 
 
-# Note
-Create a docker volume called 'data-postgres' before spinning up the container
+A secondary README.md is available in the `src/` folder showing the
+steps taken. 
 
-This is a workaround for an issue in which postgres permissions no longer allow
-for the data to be persisted over volumes.
+# Setup
+1. Ensure Docker is installed
+2. Run command: 
+    `docker volume create data-postgres`
+
+This is a workaround for an issue in which postgres does not allow
+for volumes to be shared due to postgres permissions. 
+
+3. `cd` into the root directory
+4. Run `docker-compose up`
+
+The server will appear via the url: [http://localhost:8080](http://localhost:8080)
+
+# Constructed Compose File
+LEPP development stack.
+
+This development stack
 
 ## Usage
 
@@ -25,3 +39,5 @@ Containers created and their ports (if used) are as follows:
 - **npm**
 - **composer**
 - **artisan**
+- **rabbitmq_management** - `:15672`
+- **rabbitmq** - `:5672`
