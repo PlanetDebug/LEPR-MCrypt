@@ -11,12 +11,21 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Person extends Model
 {
+    private int $id;
     private String $first_name;
     private String $last_name;
     private String $phone_num;
     private String $email;
 
     // Getters and Setters
+    public function getId() {
+        return $id;
+    }
+
+    public function setId(int $id) {
+        $this->id = $id;
+    }
+
     public function getFirstName() {
         return $first_name;
     }
