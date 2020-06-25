@@ -21,6 +21,32 @@ LEPP development stack.
 
 This development stack
 
+# .env
+
+You will need to set up a .env file in the root directory for the container to run:
+
+- POSTGRES_DATABASE=app_db
+- POSTGRES_USER=username
+- POSTGRES_PASSWORD=password
+- POSTGRES_ROOT_PASSWORD=rootPassword
+
+The name of the db must remain as `app_db` for the container to work.
+
+# Loading init.SQL 
+
+A workaround for cases where the `init.SQL` does not run on startup.
+`exec` in to the postgres container, and run the following command:<br /><br />
+
+<code>
+    <pre>
+    psql -d app_db -U username -a -f docker-entrypoint-initdb.d/init.sql
+    </pre>
+</code>
+
+This will create and populate all of the database tables. 
+
+Note: `app_db` must remain the same, along with the path to `init.sql`, the username is the one you have specified in the `.env` file.
+
 ## Usage
 
 Build Laravel file in src folder, or add php files to the "public/" directory. Run `docker-compose up -d --build` at root. Open browser to [http://localhost:8080](http://localhost:8080).
