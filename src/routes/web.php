@@ -13,6 +13,45 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::view('/', 'welcome');
+
+// Route::get('test', function() {
+//     $name = request('name');
+//     return view('test', [
+//         'name' => $name
+//     ]);
+// });
+
+// Route::get('/phpinfo', function () {
+//     return view("phpinfo");
+// });
+
+// Route::get('/jsonArr', function() {
+//     return ['Name' => 'Luke'];
+// });
+
+// Route::get('/service1', function() {
+//     $name = request('name');
+//     return $name;
+// });
+
+// Route::get('/', 'NameController@requestAsJson');
+
+// Route::get('/posts/{post}', function($post) {
+//     $posts = [
+//         'my-first-post' => 'Hello, this is my first blog post!',
+//         'my-second-post' => 'Now I am getting the hang of this blogging thing.'
+//     ];
+
+//     if(! array_key_exists($post, $posts))
+//     {
+//         abort(404, 'Sorry that post was not found.');
+//     }
+
+//     return view('post', [
+//         'post' => $posts[$post] ?? 'Nothing here yet.'
+//     ]);
+// });
+
+
+Route::get('/posts/{post}', 'PostController@show');
